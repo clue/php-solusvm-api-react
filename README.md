@@ -1,4 +1,4 @@
-# clue/solusvm-api-react [![Build Status](https://travis-ci.org/clue/solusvm-api-react.png?branch=master)](https://travis-ci.org/clue/solusvm-api-react)
+# clue/solusvm-api-react [![Build Status](https://travis-ci.org/clue/reactphp-solusvm-api.png?branch=master)](https://travis-ci.org/clue/reactphp-solusvm-api)
 
 Simple async access to your VPS box through the SolusVM API, built on top of React PHP 
 
