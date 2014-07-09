@@ -45,12 +45,10 @@ The recommended way to install this library is [through composer](packagist://ge
 ```JSON
 {
     "require": {
-        "clue/solusvm-api-react": "dev-master"
+        "clue/solusvm-api-react": "~0.1.0"
     }
 }
 ```
-
-> Note: This project is currently not listed on packagist.
 
 ## License
 
