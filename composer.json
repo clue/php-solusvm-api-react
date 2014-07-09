@@ -1,0 +1,19 @@
+{
+    "name": "clue/solusvm-api-react",
+    "description": "Simple async access to packagist.org's API, like listing project details, number of downloads, etc.",
+    "keywords": ["SolusVM", "Solus Virtual Manager", "control panel", "CP", "VPS", "React"],
+    "homepage": "https://github.com/clue/reactphp-solusvm-api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christian Lück",
+            "email": "christian@lueck.tv"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Clue\\React\\SolusVM\\Api\\": "src/" }
+    },
+    "require": {
+        "clue/buzz-react": "0.1.*"
+    }
+}
