@@ -1,6 +1,6 @@
 {
     "name": "clue/solusvm-api-react",
-    "description": "Simple async access to packagist.org's API, like listing project details, number of downloads, etc.",
+    "description": "A simple, async PHP library to manage your VPS through the SolusVM Client API",
     "keywords": ["SolusVM", "Solus Virtual Manager", "control panel", "CP", "VPS", "React"],
     "homepage": "https://github.com/clue/reactphp-solusvm-api",
     "license": "MIT",
