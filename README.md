@@ -19,8 +19,8 @@ web interface to check your bandwidth usage or reboot your VPS.
 
 ## Quickstart example
 
-Once [installed](#install), you can use the following code to fetch package
-information from packagist.org:
+Once [installed](#install), you can use the following code to fetch the info
+for your VPS from your SolusVM provider:
 
 ```php
 $factory = Factory($loop);
