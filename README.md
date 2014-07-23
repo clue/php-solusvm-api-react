@@ -35,7 +35,7 @@ $client->info()->then(function ($result) {
 });
 ```
 
-See also the [examples](example).
+See also the [examples](examples).
 
 ## Install
 
