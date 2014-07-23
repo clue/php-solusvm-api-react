@@ -14,6 +14,7 @@
         "psr-4": { "Clue\\React\\SolusVM\\Api\\": "src/" }
     },
     "require": {
+        "php": ">=5.3",
         "clue/buzz-react": "0.1.*"
     }
 }
