@@ -2,7 +2,7 @@
     "name": "clue/solusvm-api-react",
     "description": "A simple, async PHP library to manage your VPS through the SolusVM Client API",
     "keywords": ["SolusVM", "Solus Virtual Manager", "control panel", "CP", "VPS", "React"],
-    "homepage": "https://github.com/clue/reactphp-solusvm-api",
+    "homepage": "https://github.com/clue/php-solusvm-api-react",
     "license": "MIT",
     "authors": [
         {
