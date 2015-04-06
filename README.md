@@ -44,7 +44,7 @@ See also the [examples](examples).
 
 ### Factory
 
-The `Factory` class is responsible for constructing the [`Client`][#client] instance.
+The `Factory` class is responsible for constructing the [`Client`](#client) instance.
 It also registers everything with the main [`EventLoop`](https://github.com/reactphp/event-loop#usage).
 
 ```php
@@ -73,26 +73,38 @@ Only `user` and `pass` have to be set explicitly, the `Factory` assumes defaults
 
 The `Client` class is responsible for communication with the remote SolusVM API.
 
-#### reboot()
+#### Actions
 
-The `reboot()` method can be used to reboot your VPS.
+All public methods resemble their respective SolusVM Client API actions.
 
-#### boot()
+```php
+$client->reboot();
+$client->boot();
+$client->shutdown();
 
-The `boot()` method can be used to boot your VPS.
+$client->status();
+$client->info($ipaddr = true, $hdd = true, $mem = true, $bw = true);
+```
 
-#### shutdown()
+Listing all available actions is out of scope here, please refer to the [class outline](src/Client.php).
 
-The `shutdown()` method can be used to shutdown your VPS.
+#### Processing
 
-#### status()
+Issuing actions is async (non-blocking), so you can actually send multiple action requests in parallel.
+The SolusVM API service will respond to each request with a response value. The order is not guaranteed.
+Sending requests uses a [Promise](https://github.com/reactphp/promise)-based interface that makes it easy to react to when a request is *fulfilled*
+(i.e. either successfully resolved or rejected with an error):
 
-The `status()` method can be used to get the status (online/offline) of your VPS.
-
-#### info()
-
-The `info($ipaddr = true, $hdd = true, $mem = true, $bw = true)` method can be used to retrieve
-some information about your VPS.
+```php
+$client->status()->then(
+    function ($result) {
+        // response received for status action
+    },
+    function (Exception $e) {
+        // an error occured while executing the status action
+    }
+});
+```
 
 ## Install
 
