@@ -1,8 +1,11 @@
-# CHANGELOG
+# Changelog
 
-This file is a manually maintained list of changes for each release. Feel free
-to add your changes here when sending pull requests. Also send corrections if
-you spot any mistakes.
+## 0.1.1 (2015-09-05)
+
+* Maintenance: Update dependencies and simplify constructing URIs
+  ([#1](https://github.com/clue/php-solusvm-api-react/pull/1))
+
+* Improve documentation
 
 ## 0.1.0 (2014-07-09)
 
