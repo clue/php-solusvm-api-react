@@ -41,7 +41,7 @@ class Factory
             }
         }
 
-        if (!isset($parts['user'], $parts['user'])) {
+        if (!isset($parts['user'], $parts['pass'])) {
             throw new \InvalidArgumentException('Given API URL must include user (API hash) and pass (API key)');
         }
 
@@ -67,6 +67,6 @@ class Factory
         }
         $str .= $parts['path'];
 
-        return new Client($str, $parts['pass'], $parts['user'], $this->browser);
+        return new Client($this->browser->withBase($str), $parts['pass'], $parts['user']);
     }
 }
