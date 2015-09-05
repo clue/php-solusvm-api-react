@@ -13,9 +13,10 @@ class ClientTest extends TestCase
 
     public function setUp()
     {
-        $this->browser = $this->getMockBuilder('Clue\React\Buzz\Browser')->disableOriginalConstructor()->getMock();
+        $this->browser = $this->getMockBuilder('Clue\React\Buzz\Browser')->setConstructorArgs(array($this->getMock('React\EventLoop\LoopInterface')))->setMethods(array('get'))->getMock();
+        $this->browser = $this->browser->withBase('http://a/path');
 
-        $this->client = new Client('url', 'mykey', 'myhash', $this->browser);
+        $this->client = new Client($this->browser, 'mykey', 'myhash');
     }
 
     public function testReboot()
@@ -109,7 +110,7 @@ class ClientTest extends TestCase
 
         $this->browser->expects($this->once())
             ->method('get')
-            ->with($this->equalTo('url?key=mykey&hash=myhash&action=status'), array())
+            ->with($this->equalTo('http://a/path?key=mykey&hash=myhash&action=status'), array())
             ->will($this->returnValue($d->promise()));
 
         $this->expectPromiseReject($this->client->status());
@@ -122,7 +123,7 @@ class ClientTest extends TestCase
 
         $this->browser->expects($this->once())
             ->method('get')
-            ->with($this->equalTo('url?key=mykey&hash=myhash&' . $expectedUrl), array())
+            ->with($this->equalTo('http://a/path?key=mykey&hash=myhash&' . $expectedUrl), array())
             ->will($this->returnValue($d->promise()));
     }
 

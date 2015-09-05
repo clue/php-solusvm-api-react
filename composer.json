@@ -15,6 +15,6 @@
     },
     "require": {
         "php": ">=5.3",
-        "clue/buzz-react": "0.1.*"
+        "clue/buzz-react": "~0.4.1"
     }
 }

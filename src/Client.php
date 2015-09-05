@@ -7,17 +7,15 @@ use Clue\React\Buzz\Message\Response;
 
 class Client
 {
-    private $url;
+    private $browser;
     private $key;
     private $hash;
-    private $browser;
 
-    public function __construct($url, $key, $hash, Browser $browser)
+    public function __construct(Browser $browser, $key, $hash)
     {
-        $this->url = $url;
+        $this->browser = $browser;
         $this->key = $key;
         $this->hash = $hash;
-        $this->browser = $browser;
     }
 
     public function reboot()
@@ -88,13 +86,17 @@ class Client
 
     private function request($action, array $args = array())
     {
-        $url = $this->url . '?' . http_build_query(array(
-            'key' => $this->key,
-            'hash' => $this->hash,
-            'action' => $action
-        ) + $args);
-
-        return $this->browser->get($url)->then(
+        return $this->browser->get(
+            $this->browser->resolve(
+                '{?key,hash,action,args*}',
+                array(
+                    'action' => $action,
+                    'args' => $args,
+                    'key' => $this->key,
+                    'hash' => $this->hash
+                )
+            )
+        )->then(
             function (Response $response) {
                 preg_match_all('/<(.*?)>([^<]+)<\/\\1>/i', (string)$response->getBody(), $match);
                 $result = array();
